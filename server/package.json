@@ -1,13 +1,17 @@
 {
   "name": "digifundo-server",
   "version": "1.0.0",
-  "description": "Backend service for the Dgifundo application",
-  "main": "app.js",
+  "description": "Backend service for the Digifundo application",
+  "main": "dist/index.js",
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
   "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

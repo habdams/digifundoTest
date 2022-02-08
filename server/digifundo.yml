@@ -140,7 +140,18 @@ paths:
                 user_password:
                   type: string 
 components:
-  schemas: {}
+  schemas: 
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
   securitySchemes:
     application:
       type: oauth2
