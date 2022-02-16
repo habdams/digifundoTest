@@ -2,8 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
-  return (
+const Home = () => (
     <div className={styles.container}>
       <Head>
         <title>SuperDigiFundo | Funds Application Digitized</title>
@@ -84,5 +83,7 @@ export default function Home() {
             </div>
           </div>  
     </div>
-  )
-}
+  
+);
+
+export default Home;

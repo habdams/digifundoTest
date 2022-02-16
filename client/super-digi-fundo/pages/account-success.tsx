@@ -1,8 +1,8 @@
 import Link  from 'next/link'
 import { ArrowRightIcon } from '@heroicons/react/solid'
 
-export default function AccountSuccess() {
-    return <div className="flex justify-center">
+const AccountSuccess = () => (
+    <div className="flex justify-center">
             <div className=" flex flex-col max-w-md py-8 px-10 bg-white shadow-lg rounded-lg my-20">
         <h3 className='leading-relaxed my-3 '>Wilkommen Max Mustermann vom Bezirk Unterfranken zu der Förderungsanfragensbearbeitungsplatform des bayerischen Staats.</h3>
 
@@ -19,5 +19,6 @@ export default function AccountSuccess() {
         
         </div>
         </div>
-  }
-  
+);
+
+export default AccountSuccess;

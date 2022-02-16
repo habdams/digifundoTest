@@ -2,8 +2,7 @@ import Link from 'next/link'
 import { ArrowRightIcon } from '@heroicons/react/solid';
 
 
-export default function CreateAccount() {
-    return (
+const CreateAccount = () => (
       <>
         <div className="min-h-full ">
           <div className="flex-1 flex justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
@@ -82,6 +81,6 @@ export default function CreateAccount() {
             </div>
           </div>
       </>
-    )
-  }
+);
   
+export default CreateAccount;
