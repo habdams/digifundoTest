@@ -3,11 +3,16 @@ import TopHeader from './top-header';
 
 
 export default function Layout({ children }) {
+    
+    const toggler = () => {
+        
+    }
+
     return (
         <>
-            <div className="flex flex-row h-screen">
+            <div className="flex flex-row h-screen md-flex">
                 <Sidebar />
-                <div className="basis-3/4">
+                <div className="flex-1">
                     <TopHeader />
                   {children}
                 </div>

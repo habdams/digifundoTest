@@ -332,7 +332,7 @@ const myForm = {
 
 const Antragsliste = () => (
     <>
-        <div className="flex flex-row justify-evenly h-1/6 items-center gap-x-2 px-2">
+        <div className="flex flex-col md:flex-row justify-evenly h-1/6 items-center gap-x-2 px-2">
             <div className="bg-rose-400 h-3/5 rounded-2xl text-white p-2 flex flex-col justify-center">
                 <div className=" flex flex-row gap-x-2">
                     <h4 className="text-sm">Verbrauchtes Budget 2022</h4>
