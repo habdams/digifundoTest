@@ -2,6 +2,7 @@ import type { ReactElement } from "react";
 import Layout from '../components/layout';
 import { ClockIcon, HomeIcon,ViewListIcon} from '@heroicons/react/outline'
 import searchIcon from "../utils/search-icon.svg"
+import editIcon from "../utils/edit.svg"
 import Image from "next/image"
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import {
@@ -34,7 +35,7 @@ const projects = [
         //         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         //     },
         //   ],
-        status: 'Offen',
+        status: 'Ungeöffnet',
     },
     // More projects...
 ]
@@ -168,7 +169,7 @@ const Forderungsantrage = () => (
                     <tbody className="bg-white divide-y divide-gray-100">
                         {projects.map((project) => (
                             <tr key={project.id} className="h-20">
-                                <td className="px-6 py-3 max-w-0 w-full whitespace-nowrap text-sm font-medium text-gray-900 text-left">
+                                <td className="px-6 py-3 max-w-0 w-1/5 whitespace-nowrap text-sm font-medium text-gray-900 text-left">
                                     <div className="flex items-center space-x-3 lg:pl-2">
                                         <a href="#" className="truncate hover:text-gray-600">
                                             <span>
@@ -177,22 +178,20 @@ const Forderungsantrage = () => (
                                         </a>
                                     </div>
                                 </td>
-                                <td className="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
+                                <td className="hidden md:table-cell w-1/5 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
                                     {project.Vorhaben}
                                 </td>
-                                <td className="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
+                                <td className="hidden md:table-cell w-1/5 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
                                     {project.Gemeinde}
                                 </td>
-                                <td className="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
+                                <td className="hidden md:table-cell w-1/5 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
                                     {project.Eingangsdatum}
                                 </td>
-                                <td className="hidden md:table-cell px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
+                                <td className="hidden md:table-cell w-1/12 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
                                     {project.status}
                                 </td>
-                                <td className="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                        Edit
-                                    </a>
+                                <td className=" px-10 py-6 w-1/2 whitespace-nowrap text-left text-sm font-medium">
+                                    <Image src={editIcon} className="" />
                                 </td>
                             </tr>
                         ))}
