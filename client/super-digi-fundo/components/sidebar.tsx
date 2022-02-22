@@ -40,7 +40,7 @@ function classNames(...classes) {
 export default function Sidebar() {
     return (
         <>
-            <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-[#F3F3F3] overflow-y-auto">
+            <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-[#F3F3F3] overflow-y-auto min-h-full">
                 <div className="mt-5 flex-grow flex flex-col">
                     <nav className="flex-1 px-2 space-y-1 bg-[#F3F3F3]" aria-label="Sidebar">
                         {navigation.map((item) =>
@@ -52,7 +52,7 @@ export default function Sidebar() {
                                             item.current
                                                 ? 'bg-gray-100 text-gray-900'
                                                 : 'bg-[#F3F3F3] text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                                            'group w-full flex items-center pl-2 py-2 text-sm font-medium rounded-md'
+                                            'group w-full flex items-center pl-2 py-2 text-sm font-medium rounded-md mt-4'
                                         )}
                                     >
                                         <item.icon
@@ -74,7 +74,7 @@ export default function Sidebar() {
                                                     item.current
                                                         ? 'bg-gray-100 text-gray-900'
                                                         : 'bg-[#F3F3F3] text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                                                    'group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500'
+                                                    'group w-full flex items-center pl-2 pr-1 py-2 text-left text-sm font-medium rounded-md mt-4 focus:outline-none focus:ring-2 focus:ring-gray-500'
                                                 )}
                                             >
                                                 <item.icon
@@ -101,7 +101,7 @@ export default function Sidebar() {
                                                         key={subItem.name}
                                                         as="a"
                                                         href={subItem.href}
-                                                        className="group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium text-pink-600 rounded-md hover:text-gray-900 hover:bg-gray-50"
+                                                        className="group w-full flex items-center pl-11 pr-2 py-2 text-sm font-medium text-pink-600 rounded-md mt-4 hover:text-gray-900 hover:bg-gray-50"
                                                     >
                                                         {subItem.name}
                                                     </Disclosure.Button>

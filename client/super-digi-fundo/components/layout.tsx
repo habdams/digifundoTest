@@ -7,18 +7,16 @@ export default function Layout({ children }) {
     const toggler = () => {
 
     }
-
     return (
         <>
             <div className="flex flex-col h-screen md-flex">
                 <TopHeader />
-                <div className="w-full flex flex-row h-full">
+                <div className="w-full flex h-full flex-row">
                     <Sidebar />
                     <div className='w-4/5'>
                         {children}
                     </div>
                 </div>
-
             </div>
         </>
 
