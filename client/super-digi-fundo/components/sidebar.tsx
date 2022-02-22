@@ -1,5 +1,5 @@
 import { Disclosure } from '@headlessui/react'
-import { Stack, AddressBook, Coins } from "phosphor-react";
+import { Stack, AddressBook, Coins, CaretRight, GearSix, Power } from "phosphor-react";
 
 const navigation = [
     {
@@ -40,7 +40,7 @@ function classNames(...classes) {
 export default function Sidebar() {
     return (
         <>
-            <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-[#F3F3F3] overflow-y-auto min-h-full">
+            <div className="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 px-2 bg-[#F3F3F3] overflow-y-auto min-h-vh">
                 <div className="mt-5 flex-grow flex flex-col">
                     <nav className="flex-1 px-2 space-y-1 bg-[#F3F3F3]" aria-label="Sidebar">
                         {navigation.map((item) =>
@@ -78,10 +78,10 @@ export default function Sidebar() {
                                                 )}
                                             >
                                                 <item.icon
-                                                    className={ classNames(
+                                                    className={classNames(
                                                         open ? 'mr-3 flex-shrink-0 h-6 w-6 text-pink-400'
-                                                        :'mr-3 flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500'
-                                                    ) } aria-hidden="true"
+                                                            : 'mr-3 flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500'
+                                                    )} aria-hidden="true"
                                                 />
                                                 <span className="flex-1">{item.name}</span>
                                                 <svg
@@ -113,6 +113,65 @@ export default function Sidebar() {
                             )
                         )}
                     </nav>
+
+                    <div className="mt-8 border-t-2 px-4 pt-4 pb-8 mb-4 border-gray-200">
+                        <p className="text-sm text-gray-800 mb-4">
+                            Zuletzt geoffnet:
+                        </p>
+
+                        <div className="bg-white rounded-md p-2 flex mb-2 flex-row items-center justify-between gap-4">
+                            <div>
+                                <h3 className="text-md">
+                                    Bad Staffenstein
+                                </h3>
+                                <p className="text-sm text-gray-400">
+                                    Neue Kuche
+                                </p>
+                            </div>
+                            <CaretRight />
+                        </div>
+
+                        <div className="bg-white rounded-md p-2 flex mb-2 flex-row items-center justify-between gap-4">
+                            <div>
+                                <h3 className="text-md">
+                                    Kulmbach
+                                </h3>
+                                <p className="text-sm text-gray-400">
+                                    Renovierung
+                                </p>
+                            </div>
+                            <CaretRight />
+                        </div>
+
+                        <div className="bg-white rounded-md p-2 mb-2 flex flex-row items-center justify-between gap-4">
+                            <div>
+                                <h3 className="text-md">
+                                    Puschersdorf
+                                </h3>
+                                <p className="text-sm text-gray-400">
+                                    Anbau
+                                </p>
+                            </div>
+                            <CaretRight />
+                        </div>
+
+                    </div>
+
+                    <div className="p-4 border-t-2 border-gray-200">
+                        <span className="flex gap-4 text-center mb-4">
+                            <GearSix className='h-6 w-6 text-gray-800' />
+                            <p className="text-sm">
+                                Einstellungen
+                            </p>
+                        </span>
+
+                        <span className="flex gap-4 text-center mb-4">
+                            <Power className='h-6 w-6 text-gray-800'/>
+                            <p className="text-sm">
+                                Abmelden
+                            </p>
+                        </span>
+                    </div>
                 </div>
             </div>
         </>
