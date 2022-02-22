@@ -12,7 +12,7 @@ export default function Layout({ children }) {
         <>
             <div className="flex flex-col h-screen md-flex">
                 <TopHeader />
-                <div className="w-full flex flex-row">
+                <div className="w-full flex flex-row h-full">
                     <Sidebar />
                     <div className='w-4/5'>
                         {children}
