@@ -1,24 +1,40 @@
-import Link  from 'next/link'
-import { ArrowRightIcon } from '@heroicons/react/solid'
+import Link from 'next/link';
+import Image from 'next/image';
 
 const AccountSuccess = () => (
-    <div className="flex justify-center">
-            <div className=" flex flex-col max-w-md py-8 px-10 bg-white shadow-lg rounded-lg my-20">
-        <h3 className='leading-relaxed my-3 '>Wilkommen Max Mustermann vom Bezirk Unterfranken zu der Förderungsanfragensbearbeitungsplatform des bayerischen Staats.</h3>
+    <div className="min-h-full ">
+        <div className="flex flex-row min-w-full">
+            <div className="flex-1 flex justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 w-1/2">
+                <div className="mx-auto w-full max-w-sm lg">
+                    <Image src={'/logo.png'} width={332} height={90} />
 
-        <p className='text-2xl my-1'>Ihr Konto ist jetzt bereit benutzt zu werden!</p>
+                    <div className="my-8 text-center text-xl">
+                        <p className="text-gray-500 ">Servus <span className="text-bold text-pink-600">Holger Häßlein </span></p>
+                        <p className="text-gray-500">aus dem Bezirk <span className="text-bold text-pink-600">Unterfranken</span></p>
+                    </div>
 
-        <div className="flex justify-end mt-4">
-        <Link href="/">
-            <button className='inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500'>
-                Weiter
-                < ArrowRightIcon className='ml-2 -mr-1 h-5 w-5' />
-            </button>
-        </Link>
+                    <div className="mb-8 mt-6">
+                        <h2 className="font-light text-3xl text-gray-900 text-center">Wilkommen zur bayrischen
+                            Ihr Konto ist jetzt bereit
+                            benutzt zu werden.</h2>
+                    </div>
+
+                    <div>
+                  <Link href="/forderungsantrage">
+                    <button
+                      type="submit"
+                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:pink-sky-500"
+                    >
+                      Weiter
+                    </button>
+                  </Link>
+
+                </div>
+                </div>
+            </div>
+            <div className="lg:bg-[url('/bg1.png')] lg:w-1/2 bg-cover min-h-screen"></div>
         </div>
-        
-        </div>
-        </div>
+    </div>
 );
 
 export default AccountSuccess;
