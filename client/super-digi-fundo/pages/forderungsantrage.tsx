@@ -185,10 +185,10 @@ const Forderungsantrage = () => (
                   {project.Eingangsdatum}
                 </td>
                 <td className="hidden md:table-cell w-1/12 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
-                  {project.status}
+                  <span className={`bg-${project.status == "Ungeöffnet" ? "red-200" : "blue-200"} text-${project.status == "Ungeöffnet" ? "red-500" : "blue-500"} p-2 rounded-2xl px-4`}>{project.status}</span>
                 </td>
                 <td className=" px-10 py-6 w-1/2 whitespace-nowrap text-left text-sm font-medium">
-                  <Image src={'/edit-icon.svg'} height={24} width={24} className="" /> 
+                  <Image src={'/edit-icon.svg'} height={20} width={20} color={"red"} /> 
                 </td>
               </tr>
             ))}
@@ -198,7 +198,6 @@ const Forderungsantrage = () => (
     </div>
 
   </>
-
 
 );
 
