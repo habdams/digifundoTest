@@ -50,7 +50,7 @@ const Forderungsantrage = () => (
           name="search"
           placeholder="Suche nach Aktenzeichen, Gemeinde, ..."
           id="search"
-          className="h-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-full pr-12 sm:text-sm border-gray-300"
+          className="h-full shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full rounded-full pr-12 sm:text-sm border-gray-300"
         />
       </div>
       <div className="absolute right-0 mr-10 flex flex-col justify-center items-center h-12 w-12 p-2">
@@ -62,7 +62,7 @@ const Forderungsantrage = () => (
         <div className="flex items-center">
           <h1 className="flex-1 text-lg font-medium"></h1>
           <Menu as="div" className="relative">
-            <Menu.Button className="w-full bg-white border border-gray-300 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <Menu.Button className="w-full bg-white border border-gray-300 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               <SortAscendingIcon className="mr-3 h-5 w-5 text-gray-400" aria-hidden="true" />
               Sort
               <ChevronDownIcon className="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
