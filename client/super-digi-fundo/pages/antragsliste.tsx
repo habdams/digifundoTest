@@ -35,14 +35,14 @@ const Antragsliste = () => (
             </Link>
 
         </div>
-        <div className="flex flex-row justify-between items-center py-6">
+        <div className="flex flex-col md:flex-row justify-center lg:justify-between items-center py-6">
 
             <div className="ml-4 px-6">
                 <h1 className="text-2xl mt-2 font-mono">Antrag</h1>
             </div>
 
-            <div className="mt-1 relative flex px-6 pb-2 h-14 justify-end items-center flex-1 flex-row">
-                <div className="bg-red-200 w-1/2 h-10 m-4 content-center rounded-full">
+            <div className="mt-1 w-full lg:w-1/2 relative flex px-6 pb-2 h-14 justify-end items-center flex-1 flex-row">
+                <div className="bg-red-200  w-full lg:w-1/2 h-10 m-4 content-center rounded-full">
                     <input
                         type="text"
                         name="search"
@@ -101,10 +101,10 @@ const Antragsliste = () => (
             {infos.map((info, index) => (
                 <div key={info.header} className={classNames(
                     index % 2 == 0
-                        ? 'flex flex-row  items-center text-left bg-gray-200 p-2 text-gray-600'
-                        : 'flex flex-row  items-center text-left bg-white p-2 text-gray-600'
+                        ? 'flex flex-col lg:flex-row  md:items-center text-left bg-gray-200 p-2 mb-2 items-start text-gray-600'
+                        : 'flex flex-col lg:flex-row  md:items-center text-left bg-white p-2 mb-2 items-start text-gray-600'
                 )}>
-                    <span className="w-3/12">
+                    <span className="w-3/12 text-sm md:text-lg">
                         {info.header}
                     </span>
 
