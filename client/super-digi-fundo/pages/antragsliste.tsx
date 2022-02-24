@@ -1,5 +1,7 @@
 import type { ReactElement } from "react";
 import Image from 'next/image';
+import Link from "next/link";
+import { CaretLeft } from "phosphor-react";
 import searchIcon from "../utils/search-icon.svg";
 import Layout from '../components/layout';
 
@@ -25,8 +27,20 @@ function classNames(...classes) {
 
 const Antragsliste = () => (
     <>
+        <div className="font-mono hover:text-pink-400 text-pink-600  mt-6 ml-4 px-6">
+            <Link href={'/forderungsantrage'} >
+                <a className="flex flex-row items-center">
+                    <CaretLeft /> Go back
+                </a>
+            </Link>
+
+        </div>
         <div className="flex flex-row justify-between items-center py-6">
-            <h1 className="px-6 text-2xl ml-4 mt-2 font-mono">Antrag</h1>
+
+            <div className="ml-4 px-6">
+                <h1 className="text-2xl mt-2 font-mono">Antrag</h1>
+            </div>
+
             <div className="mt-1 relative flex px-6 pb-2 h-14 justify-end items-center flex-1 flex-row">
                 <div className="bg-red-200 w-1/2 h-10 m-4 content-center rounded-full">
                     <input
