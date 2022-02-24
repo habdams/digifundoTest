@@ -7,7 +7,7 @@ const navigation = [
         icon: Stack,
         current: true,
         children: [
-            { name: 'Antrag', href: '/antrag' },
+            { name: 'Antrag', href: '/antragsliste' },
             { name: 'Externe Dokumente', href: '#' },
             { name: 'Rechnung', href: '#' },
             { name: 'Bestatigung', href: '#' },

@@ -1,338 +1,152 @@
 import type { ReactElement } from "react";
+import Image from 'next/image';
+import searchIcon from "../utils/search-icon.svg";
 import Layout from '../components/layout';
-import { CaretDown } from "phosphor-react";
 
-
-const project = [
-    { name: 'Jane Cooper', title: 'Regional Paradigm Technician', role: 'Admin', email: 'jane.cooper@example.com' },
-    { name: 'Cody Fisher', title: 'Product Directives Officer', role: 'Owner', email: 'cody.fisher@example.com' },
-    // More Project...
+const tabs = [
+    { name: 'Allgemein', href: '#', current: false },
+    { name: 'Forderart', href: '#', current: true },
+    { name: 'Info Forderung', href: '#', current: false },
+    { name: 'Kosten', href: '#', current: false },
 ]
 
-const myForm = {
-    "unternehmen_weniger": "true",
-    "unternehmen_jahresumsatz": "true",
-    "unternehmen_jahresbilanzsumme": "true",
-    "gewerbliche_wirtschaft": "true",
-    "gewerbesteuer": "false",
-    "unternehmen_freiberuflich": "Teilweise",
-    "unternehmen_leistungen_freiberuflich": "false",
-    "erlaeuterung_freiberuflich": "test",
-    "unternehmen_einrichtung": "false",
-    "unternehmen_bereich": "false",
-    "unternehmen_insolvenzverfahren": "false",
-    "auftrag_erteilt": "false",
-    "ikt_massnahme": "true",
-    "beschreibung_loesung": "Softwareprodukt",
-    "bs_bayern": "true",
-    "mff_allgemein": "false",
-    "mff_digitalbonus": "eine",
-    "mff_digitalbonus_text": "Ja",
-    "elster_anmeldung": "true",
-    "betriebsaufspaltung": "true",
-    "finanzierung_nutzung_massnahme": "Finanzierung und Nutzung erfolgen durch das Besitz- und Betriebsunternehmen gemeinsam",
-    "name_firma": "Firma Grandierè AG",
-    "strasse_firma": "Zillestraße",
-    "hausnr_firma": "17",
-    "plz_firma": "10585",
-    "ort_firma": "Berlin",
-    "landkreis_firma": "Regensburg, kreisfreie Stadt",
-    "regierungsbezirk_firma": "Oberpfalz",
-    "website_firma": "",
-    "email_firma": "test@web.de",
-    "telefon_firma": "1234",
-    "kontoinhaber_firma": "Muster AG",
-    "bank_firma": "Musterbank",
-    "iban_firma": "DE89370400440532013000",
-    "rechtsform_auswahl": "Aktiengesellschaft (AG)",
-    "rechtsform_sonst": "",
-    "rechtsform": "Aktiengesellschaft (AG)",
-    "registergericht": "Berlin",
-    "firmeninhaber": {
-        "firmeninhaber-item": {
-            "anrede_inhaber": "Frau",
-            "name_inhaber": "Mustermann",
-            "vorname_inhaber": "Marianne",
-            "email_inhaber": "",
-            "telefon_inhaber": "12",
-            "beteiligung": "100",
-            "funktion_inhaber": "Inhaberin"
-        }
-    },
-    "gesetzliche_vertreter": {
-        "gesetzliche_vertreter-item": {
-            "anrede_vertreter": "Herr",
-            "name_vertreter": "Mustermann",
-            "vorname_vertreter": "Moritz",
-            "email_vertreter": "M.M@test.de",
-            "telefon_vertreter": "123",
-            "funktion_vertreter": "Geschäftsführer"
-        }
-    },
-    "anrede_ansprech": "",
-    "funktion_ansprech": "",
-    "name_ansprech": "",
-    "vorname_ansprech": "",
-    "email_ansprech": "",
-    "telefon_ansprech": "",
-    "adressat1": "Herrn Geschäftsführer Moritz Mustermann",
-    "adressat2": "",
-    "adressat3": "",
-    "gruendungsjahr": "2013",
-    "l_jahr": "2020",
-    "beschaeftigte_l_jahr": "10",
-    "umsatz_l_jahr": "1234567",
-    "bilanzsumme_l_jahr": "123456789",
-    "keine_bilanz": "false",
-    "bemerkungen_ku": "Nach Treu und Glauben geschätzt",
-    "branchenart": "Gastgewerbe und Tourismus",
-    "beschreibung_taetigkeit": "Restaurant",
-    "foerderbereich_auswahl_2": "it",
-    "art_digitalbonus_auswahl_2": "standard",
-    "az_digitalbonus": "1345",
-    "datum_digitalbonus": "2021-06-23",
-    "foerderbereich_auswahl": "it",
-    "art_digitalbonus_auswahl": "standard",
-    "foerderart_1": "plus",
-    "foerderart": "plus",
-    "foerderbereich": "IT-Sicherheit (siehe Nr. 2.2 Förderrichtlinie)",
-    "art_digitalbonus": "Digitalbonus Standard",
-    "foerderantrag_auswahl_1": "produkte",
-    "foerderantrag": "Entwicklung, Einführung oder Verbesserung von Produkten, Dienstleistungen, Prozessen, durch IKT-Hardware, IKT-Software sowie Migration und Portierung von IT-Systemen und IT-Anwendungen",
-    "kurzbez_massnahme": "ERP-System",
-    "ort_der_durchfuehrung": {
-        "ort_der_durchfuehrung-item": [
-            {
-                "plz_durchfuehrung": "98765",
-                "ort_durchfuehrung": "Landshut",
-                "landkreis_durchfuehrung": "Landshut, kreisfreie Stadt",
-                "regierungsbezirk_durchfuehrung": "Niederbayern"
-            },
-            {
-                "plz_durchfuehrung": "12345",
-                "ort_durchfuehrung": "Schierling",
-                "landkreis_durchfuehrung": "Regensburg, Landkreis",
-                "regierungsbezirk_durchfuehrung": "Oberpfalz"
-            }
-        ]
-    },
-    "beginn_durchfuehrung": "2022-07-05",
-    "ende_durchfuehrung": "2022-07-19",
-    "plz_durchfuehrung": "98765",
-    "ort_durchfuehrung": "Landshut",
-    "landkreis_durchfuehrung": "Landshut, kreisfreie Stadt",
-    "regierungsbezirk_durchfuehrung": "Niederbayern",
-    "investitionsort2": "12345; Schierling; Regensburg, Landkreis; Oberpfalz",
-    "investitionsort3": "",
-    "investitionsort4": "",
-    "investitionsort5": "",
-    "massnahme_ausgangslage": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-    "massnahme_loesung": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-    "massnahme_ergebnis": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-    "digitalbonus_art": "Digitalbonus Plus",
-    "innovationsgehalt": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
-    "bestaetigung_mietkauf": "true",
-    "bestaetigung_externe": "true",
-    "vorsteuer": "true",
-    "gesamtausgaben": "50000",
-    "zuschuss_plus": "25000",
-    "bankkredit": "",
-    "eigenmittel": "25000",
-    "gesamtsumme": "50000",
-    "externe_anbieter": {
-        "externe_anbieter-item": [
-            {
-                "name_externer": "DL1",
-                "strasse_externer": "",
-                "hausnr_externer": "",
-                "plz_externer": "",
-                "ort_externer": "",
-                "dienstleistung": "Hardware",
-                "kosten_dienstleistung": "25000",
-                "angebot_externer": {
-                    "angebot_externer-item": {
-                        "file": {
-                            "_content-type": "application/pdf",
-                            "_description": "",
-                            "_id": "assistants.77CA3BF998F155C2E6E35DDED6C38B35718E2614",
-                            "_length": "91159",
-                            "__text": "Richtlinien Digitalbonus_2021 (1).pdf"
-                        }
-                    }
-                }
-            },
-            {
-                "name_externer": "DL",
-                "strasse_externer": "",
-                "hausnr_externer": "",
-                "plz_externer": "",
-                "ort_externer": "",
-                "dienstleistung": "Software",
-                "kosten_dienstleistung": "25000",
-                "angebot_externer": {
-                    "angebot_externer-item": {
-                        "file": {
-                            "_content-type": "application/pdf",
-                            "_description": "",
-                            "_id": "assistants.DCC0EC5006FD5BF3F65CCBC20596E7FB4AB88674",
-                            "_length": "91159",
-                            "__text": "Richtlinien Digitalbonus_2021 (2).pdf"
-                        }
-                    }
-                }
-            }
-        ]
-    },
-    "beteiligungen1": "false",
-    "beteiligungen2": "false",
-    "beteiligungen3": "true",
-    "beteiligungen4": "false",
-    "weitere_unternehmen": {
-        "weitere_unternehmen-item": {
-            "verbundenes_unternehmen_name": "TEST VU"
-        }
-    },
-    "unternehmen_demi": "Firma Grandierè AG,TEST VU",
-    "unternehmen_strassenverkehr": "false",
-    "unternehmen_entstanden": "false",
-    "unternehmen_hervorgegangen": "false",
-    "weitere_beihilfen": {
-        "keine": {
-            "_label": "Über die beantragte Beihilfe hinaus wurden im laufenden sowie in den zwei vorangegangenen Steuerjahren <strong>keine</strong> De-minimis-Beihilfen nach De-minimis-Verordnungen gewährt.",
-            "__text": "false"
-        },
-        "weitere": {
-            "_label": "Über die beantragte Beihilfe hinaus wurden im laufenden sowie in den zwei vorangegangenen Steuerjahren <strong>weitere</strong> De-minimis-Beihilfen gewährt.",
-            "__text": "true"
-        },
-        "weitereg": {
-            "_label": "Über die beantragte Beihilfe hinaus wurden <strong>weitere De-minimis-Beihilfen beantragt, aber noch nicht gewährt.</strong>",
-            "__text": "true"
-        }
-    },
-    "weitere_de_minimis_beihilfen": {
-        "weitere_de_minimis_beihilfen-item": {
-            "datum_bewilligungsbescheid": "2021-07-05",
-            "beihilfegeber": "reg opf",
-            "rechtsgrundlage": "VO",
-            "form_beihilfe": "Zuschuss",
-            "foerdersumme_beihilfe": {
-                "_currency": "EUR",
-                "__text": "5000"
-            },
-            "beihilfebetrag": {
-                "_currency": "EUR",
-                "__text": "5000"
-            }
-        }
-    },
-    "noch_nicht_genehmigte_de_minimis_beihilfen": {
-        "noch_nicht_genehmigte_de_minimis_beihilfen-item": {
-            "datum_antragstellung": "2021-07-01",
-            "beihilfegeber_nicht_gewaehrt": "reg opf",
-            "rechtsgrundlage_nicht_gewaehrt": "VO",
-            "form_beihilfe_nicht_gewaehrt": "Zuschuss",
-            "foerdersumme_beihilfe_nicht_gewaehrt": {
-                "_currency": "EUR",
-                "__text": "2000"
-            },
-            "beihilfebetrag_nicht_gewaehrt": {
-                "_currency": "EUR",
-                "__text": "2000"
-            }
-        }
-    },
-    "kombination_beihilfen": "nein",
-    "bestaetigung0": "true",
-    "bestaetigung1": "true",
-    "bestaetigung2": "true",
-    "bestaetigung3": "true",
-    "bestaetigung4": "true",
-    "bestaetigung5": "true",
-    "bestaetigung6": "true",
-    "bestaetigung7": "true",
-    "bestaetigung8": "true",
-    "bestaetigung9": "true",
-    "bestaetigung10": "true",
-    "bestaetigung11": "true",
-    "bestaetigung12": "true",
-    "bestaetigung13": "false",
-    "weitere_beihilfe_1": "2021-07-05; reg opf; VO; Zuschuss; 5000 EUR; 5000 EUR",
-    "weitere_beihilfe_2": "",
-    "weitere_beihilfe_3": "",
-    "weitere_beihilfe_4": "",
-    "weitere_beihilfe_5": "",
-    "zustimmung_subvention": "true",
-    "name_regierung": "Regierung von Niederbayern",
-    "strasse_hnr": "Regierungsplatz 540",
-    "plz_ort": "84028 Landshut",
-    "email_regierung": "digitalbonus@reg-nb.bayern.de",
-    "alle_empfaenger": "digitalbonus@reg-nb.bayern.de, digitalbonus@stmwi.bayern.de, digitalbonus@reg-opf.bayern.de",
-    "datum": "2022-01-21",
-    "art_antrag": "mit ELSTER",
-    "digitalbonus_art_sharepoint": "Plus",
-    "digitalbonus_kmu_eigenschaft_sharepoint": "",
-    "digitalbonus_foerderantrag_sharepoint": "Prod/DL/Proz",
-    "digitalbonus_zuschuss_sharepoint": "25000",
-    "externe_anbieter_temp": "DL1;DL",
-    "_xmlns:pdf": "http://xmlns.cit.de/assistants/pdf",
-    "_xmlns:t": "http://xmlns.cit.de/intelliform/transaction",
-    "_xmlns:u": "http://xmlns.cit.de/intelliform/user",
-    "_t:id": "20220121356490990311",
-    "_t:timestamp": "2022-01-21T08:54:09.651Z",
-    "_t:sender": "nezo-test.bayern.de",
-    "_t:form": "Digitalbonus mit Elster",
-    "_t:form-id": "stmwi/Digitalbonus_Elster",
-    "_t:customer": "Wirtschaftsministerium",
-    "_t:customer-id": "stmwi",
-    "_t:client": "ITDLZ-Entwicklung",
-    "_t:client-id": "entwicklung",
-    "_u:saml_username": "ek-ee8073cecfb4a9ec93c9e6d745e3466f45558be4",
-    "_u:sp_auth_token": "ZDAxNzJhMmQwNTZhY2ViNTRiNWM4NzBh",
-    "_u:saml_registernummer": "36936",
-    "_u:saml_inresponseto": "_0aa829609d24192a6f570428a47e3c976ad7dc",
-    "_u:saml_surname": "Firma Grandierè AG",
-    "_u:saml_givenname": "",
-    "_u:forwarded_sourceport": "36100",
-    "_u:saml_hausnummer": "17",
-    "_u:saml_ortsteil": "Charlottenburg",
-    "_u:saml_rechtsformtext": "Aktiengesellschaft",
-    "_u:saml_eid_citizen_qaa_level": "STORK-QAA-Level-3",
-    "_u:saml_idnr_akademischergrad": "",
-    "_u:saml_strasse": "Zillestraße",
-    "_u:saml_kontoid": "du-b214eaffa0ee9de323ad897c747e64938a5c5ea0",
-    "_u:saml_datenkranztyp": "StNr",
-    "_u:saml_loginType": "elster",
-    "_u:saml_registergericht": "Berlin",
-    "_u:saml_plz": "10585",
-    "_u:saml_idnr_name": "",
-    "_u:saml_elstervertrauensniveauidentifizierung": "substanziell",
-    "_u:saml_taetigkeit": "",
-    "_u:displayName": " Firma Grandierè AG",
-    "_u:saml_firmenname": "Firma Grandierè AG",
-    "_u:saml_idnr_geburtsdatum": "",
-    "_u:saml_taetigkeittext": "",
-    "_u:saml_elstervertrauensniveauauthentifizierung": "substanziell",
-    "_u:saml_ort": "Berlin",
-    "_u:saml_idnr_vorname": "",
-    "_u:saml_idnr_geburtsland": "",
-    "_u:saml_adresstyp": "Inland",
-    "_u:saml_idnr_anschriftkomplett": "",
-    "_u:saml_perstype": "NNatPers",
-    "_u:saml_registerart": "PR",
-    "_u:saml_land": "DE",
-    "_u:saml_isttestkonto": "false",
-    "_u:saml_idnr_geburtsname": "",
-    "_u:saml_unternehmensanschriftkomplett": "Inland,Zillestraße,17,10585,Berlin,Charlottenburg,DE,",
-    "_u:forwarded_for": "195.200.70.45",
-    "_u:saml_idnr_geburtsort": "",
-    "_u:saml_rechtsform": "310",
-    "_u:saml_datenuebermittlerpseudonymid": "du-b214eaffa0ee9de323ad897c747e64938a5c5ea0"
+const infos = [
+    { header: 'Grund', detail: 'Anbau an das alte Gebäude damit mehr Kinderplatz haben' },
+    { header: 'Zimmertypen', detail: 'Gemeinschaftszimmer + Küche + Toilletten' },
+    { header: 'Landkreis', detail: 'Musterlandkreis' },
+    { header: 'E-mail', detail: 'muster@email.de' },
+    { header: 'ELSTER', detail: 'ID0889039' }
+]
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
 }
+
 
 const Antragsliste = () => (
     <>
-        
+        <div className="flex flex-row justify-between items-center py-6">
+            <h1 className="px-6 text-2xl ml-4 mt-2 font-mono">Antrag</h1>
+            <div className="mt-1 relative flex px-6 pb-2 h-14 justify-end items-center flex-1 flex-row">
+                <div className="bg-red-200 w-1/2 h-10 m-4 content-center rounded-full">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Suche nach Aktenzeichen, Gemeinde, ..."
+                        id="search"
+                        className="h-full shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full rounded-full pr-12 sm:text-sm border-gray-300"
+                    />
+                </div>
+                <div className="absolute right-0 mr-10 flex flex-col justify-center items-center h-12 w-12 p-2">
+                    <Image src={searchIcon} className="px-2 text-pink-400 text-sm items-center " />
+                </div>
+            </div>
+        </div>
+
+        <div className="ml-4 px-6">
+            <div className="sm:hidden">
+                <label htmlFor="tabs" className="sr-only">
+                    Select a tab
+                </label>
+                {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+                <select
+                    id="tabs"
+                    name="tabs"
+                    className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    defaultValue={tabs.find((tab) => tab.current).name}
+                >
+                    {tabs.map((tab) => (
+                        <option key={tab.name}>{tab.name}</option>
+                    ))}
+                </select>
+            </div>
+            <div className="hidden sm:block">
+                <div className="border-b border-gray-200">
+                    <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+                        {tabs.map((tab) => (
+                            <a
+                                key={tab.name}
+                                href={tab.href}
+                                className={classNames(
+                                    tab.current
+                                        ? 'border-indigo-500 text-indigo-600'
+                                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
+                                    'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm'
+                                )}
+                                aria-current={tab.current ? 'page' : undefined}
+                            >
+                                {tab.name}
+                            </a>
+                        ))}
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div className="mt-4 ml-4 px-6">
+            {infos.map((info, index) => (
+                <div key={info.header} className={classNames(
+                    index % 2 == 0
+                        ? 'flex flex-row  items-center text-left bg-gray-200 p-2 text-gray-600'
+                        : 'flex flex-row  items-center text-left bg-white p-2 text-gray-600'
+                )}>
+                    <span className="w-3/12">
+                        {info.header}
+                    </span>
+
+                    <span className="6/12">
+                        {info.detail}
+                    </span>
+
+                </div>
+            ))}
+        </div>
+
+        <div className="mt-20 px-6 ml-4">
+            <h3 className="text-lg font-mono font-bold">Förderbeschreibung</h3>
+            <div className="bg-gray-200 flex items-center p-2 rounded justify-between mb-4">
+                <div className="flex flex-row w-6/12 items-center gap-2">
+                    <Image src={'/FileDoc.svg'} width={40} height={40} />
+                    <p className="text-lg">Beschreibungsdok4.doc</p>
+                </div>
+
+                <div className="w-3/12 flex flex-row items-center gap-2">
+                    <Image src={'/ellipse-pink.svg'} width={20} height={20} />
+                    <p className="text-lg">geprüft</p>
+                </div>
+
+                <div className="w-3/12">
+                    <a href="#" className="bg-black text-white px-4 py-2 rounded">
+                        öffnen
+                    </a>
+                </div>
+
+            </div>
+
+            <h3 className="text-lg font-mono font-bold">Zimmertypenauflistung</h3>
+            <div className="bg-gray-200 flex items-center p-2 rounded">
+                <div className="flex flex-row w-6/12 items-center gap-2">
+                    <Image src={'/FilePdf.svg'} width={40} height={40} />
+                    <p className="text-lg">KinderHochstadt_zimmer.pdf</p>
+                </div>
+
+                <div className="w-3/12 flex flex-row items-center gap-2">
+                    <Image src={'/ellipse-blue.svg'} width={20} height={20} />
+                    <p className="text-lg">nicht geprüft</p>
+                </div>
+
+                <div className="w-3/12">
+                    <a href="#" className="bg-black text-white px-4 py-2 rounded">
+                        öffnen
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
     </>
 
 
