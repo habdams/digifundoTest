@@ -104,11 +104,11 @@ const Antragsliste = () => (
                         ? 'flex flex-col lg:flex-row  md:items-center text-left bg-gray-200 p-2 mb-2 items-start text-gray-600'
                         : 'flex flex-col lg:flex-row  md:items-center text-left bg-white p-2 mb-2 items-start text-gray-600'
                 )}>
-                    <span className="w-3/12 text-sm md:text-lg">
+                    <span className="w-3/12 text-sm md:text-base">
                         {info.header}
                     </span>
 
-                    <span className="6/12">
+                    <span className="6/12 text-base md:text-sm">
                         {info.detail}
                     </span>
 
@@ -138,7 +138,7 @@ const Antragsliste = () => (
             </div>
 
             <h3 className="text-lg font-mono font-bold">Zimmertypenauflistung</h3>
-            <div className="bg-gray-200 flex items-center p-2 rounded">
+            <div className="bg-gray-200 flex items-center p-2 rounded mb-6">
                 <div className="flex flex-row w-6/12 items-center gap-2">
                     <Image src={'/FilePdf.svg'} width={40} height={40} />
                     <p className="text-lg">KinderHochstadt_zimmer.pdf</p>
