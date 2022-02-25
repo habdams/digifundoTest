@@ -19,7 +19,7 @@ class Express {
     public init(): any {
         const port: number = ConfigEnvironment.config().port;
         this.express.listen(port, () => {
-            return console.log('Server started at http://localhost:${ port }')
+            return console.log(`Server started at http://localhost:${port}`)
         })
     }
 }
