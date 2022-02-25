@@ -1,11 +1,23 @@
-import express from "express";
-const app = express();
-const port = 8080; 
+import * as _cluster from 'cluster'
+import { cpus } from 'os';
+import * as process from 'process';
+import App from "./app"
 
-app.get( "/", ( req, res ) => {
-    res.send( "Digifundo!" );
-} );
+const numCPUs = cpus().length;
+const cluster = _cluster as unknown as _cluster.Cluster;
 
-app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
-} );
+// If one of the cpu is a master 
+if (cluster.isPrimary) {
+    const CPUs: any = cpus(); 
+    // For each CPU process, fork a new process
+    CPUs.forEach(() => {
+        cluster.fork()
+    })  
+
+    // Load the queue monitor for the app
+    App.loadQueueMonitoring();
+
+} else {
+    // Load the Express server
+    App.loadExpress();
+}
