@@ -138,7 +138,7 @@ const Antragsliste = () => (
             </div>
 
             <h3 className="text-lg font-mono font-bold">Zimmertypenauflistung</h3>
-            <div className="bg-gray-200 flex items-center p-2 rounded mb-6">
+            <div className="bg-gray-200 flex items-center p-2 rounded mb-10">
                 <div className="flex flex-row w-6/12 items-center gap-2">
                     <Image src={'/FilePdf.svg'} width={40} height={40} />
                     <p className="text-lg">KinderHochstadt_zimmer.pdf</p>
