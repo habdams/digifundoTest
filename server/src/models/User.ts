@@ -27,7 +27,7 @@ interface JsonInterface {
     gender: string;
 };
 
-export interface User extends mongoose.Document {
+export interface UserInterface extends mongoose.Document {
     email: string;
     username: string;
     password: string;
@@ -46,7 +46,7 @@ export interface User extends mongoose.Document {
 }
 
 // Creating the user schema 
-export const UserSchema = new mongoose.Schema<User, UserApplications>({
+export const UserSchema = new mongoose.Schema<UserInterface, UserApplications>({
     email: {
         type: String,
         required: true
@@ -150,4 +150,4 @@ UserSchema.methods.getJson = function (): JsonInterface {
     }
 }
 
-export default mongoose.model<User, UserApplications>("User", UserSchema)
+export const User = mongoose.model<UserInterface>("User", UserSchema)
