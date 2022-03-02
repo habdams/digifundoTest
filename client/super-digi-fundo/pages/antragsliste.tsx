@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CaretLeft } from "phosphor-react";
 import searchIcon from "../utils/search-icon.svg";
 import Layout from '../components/layout';
+import PdfViewer from "../components/pdfViewer";
 
 const tabs = [
     { name: 'Allgemein', href: '#', current: false },
@@ -156,7 +157,7 @@ const Antragsliste = () => (
                 </div>
 
             </div>
-
+                    <PdfViewer />
         </div>
 
 
