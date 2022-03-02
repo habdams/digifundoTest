@@ -41,24 +41,4 @@ else {
     // Load the Express server
     app_1.default.loadExpress();
 }
-// import express from "express";
-// const app = express();
-// const port = 8080; 
-// // import {Logger} from "./middlewares/Logger";
-// import {Log} from "./middlewares/Log";
-// const logger = Log.logInstance(
-//     'info', // error | info | warn
-//     'index' // directory to store logs
-//     );
-// app.get( "/", ( req, res ) => {
-//     // logger.error("This is an error log");
-//     logger.warn("This is a warn log");
-//     logger.info("This is a info log");
-//     logger.http("This is a http log");
-//     logger.debug("This is a debug log");
-//     res.send( "Digifundo!" );
-// } );
-// app.listen( port, () => {
-//     logger.info(`Server is up and running @ http://localhost:${port}`);
-// });
 //# sourceMappingURL=index.js.map
