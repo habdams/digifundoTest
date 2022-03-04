@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
+import React, { useState } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
 
-const url = "/pdfs/kindergarden.pdf"
+const url = "/pdfs/kindergarden.pdf";
 export default function PdfViewer() {
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -20,7 +20,7 @@ export default function PdfViewer() {
     }
 
     function changePage(offset) {
-        setPageNumber(prevPageNumber => prevPageNumber + offset);
+        setPageNumber((prevPageNumber) => prevPageNumber + offset);
     }
 
     function previousPage() {
@@ -34,15 +34,14 @@ export default function PdfViewer() {
     return (
         <>
             <div className="main">
-                <Document
-                    file={url}
-                    onLoadSuccess={onDocumentLoadSuccess}>
+                <Document file={url} onLoadSuccess={onDocumentLoadSuccess}>
                     <Page pageNumber={pageNumber} />
                 </Document>
 
                 <div>
                     <div className="">
-                        Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+                        Page {pageNumber || (numPages ? 1 : "--")} of{" "}
+                        {numPages || "--"}
                     </div>
 
                     <div className="">
