@@ -4,8 +4,7 @@ import Link from "next/link";
 import { CaretLeft } from "phosphor-react";
 import searchIcon from "../utils/search-icon.svg";
 import Layout from '../components/layout';
-import PdfViewer from "../components/pdfViewer";
-
+import DocComp from "../components/docComp";
 const tabs = [
     { name: 'Allgemein', href: '#', current: false },
     { name: 'Forderart', href: '#', current: true },
@@ -119,48 +118,17 @@ const Antragsliste = () => (
 
         <div className="mt-20 px-6 ml-4">
             <h3 className="text-lg font-mono font-bold">Förderbeschreibung</h3>
-            <div className="bg-gray-200 flex items-center p-2 rounded justify-between mb-4">
-                <div className="flex flex-row w-6/12 items-center gap-2">
-                    <Image src={'/FileDoc.svg'} width={40} height={40} />
-                    <p className="text-lg">Beschreibungsdok4.doc</p>
-                </div>
-
-                <div className="w-3/12 flex flex-row items-center gap-2">
-                    <Image src={'/ellipse-pink.svg'} width={20} height={20} />
-                    <p className="text-lg">geprüft</p>
-                </div>
-
-                <div className="w-3/12">
-                    <a href="#" className="bg-black text-white px-4 py-2 rounded">
-                        öffnen
-                    </a>
-                </div>
-
-            </div>
+            <DocComp
+                    btnTitle="offnen"
+                    itemName="KinderHochstadt_zimmer"
+                    itemLocation="/pdfs/kindergarden.pdf" />
 
             <h3 className="text-lg font-mono font-bold">Zimmertypenauflistung</h3>
-            <div className="bg-gray-200 flex items-center p-2 rounded mb-10">
-                <div className="flex flex-row w-6/12 items-center gap-2">
-                    <Image src={'/FilePdf.svg'} width={40} height={40} />
-                    <p className="text-lg">KinderHochstadt_zimmer.pdf</p>
-                </div>
-
-                <div className="w-3/12 flex flex-row items-center gap-2">
-                    <Image src={'/ellipse-blue.svg'} width={20} height={20} />
-                    <p className="text-lg">nicht geprüft</p>
-                </div>
-
-                <div className="w-3/12">
-                    <a href="#" className="bg-black text-white px-4 py-2 rounded">
-                        öffnen
-                    </a>
-                </div>
-
-            </div>
-                    <PdfViewer />
+            <DocComp
+                    btnTitle="offnen"
+                    itemName="KinderHochstadt_zimmer"
+                    itemLocation="/pdfs/kindergarden.pdf" />
         </div>
-
-
 
     </>
 
