@@ -86,3 +86,5 @@ class ActivationController {
         }
     );
 }
+
+export default ActivationController;
