@@ -65,3 +65,5 @@ class PassportLocalStrategy {
         );
     }
 }
+
+export default PassportLocalStrategy;
