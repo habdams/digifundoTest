@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
-import Modal from 'react-modal';
+import React, { useState } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
+import Modal from "react-modal";
 
 // const url = "/pdfs/kindergarden.pdf"
 export default function PdfViewer(props) {
@@ -30,7 +30,7 @@ export default function PdfViewer(props) {
     }
 
     function changePage(offset) {
-        setPageNumber(prevPageNumber => prevPageNumber + offset);
+        setPageNumber((prevPageNumber) => prevPageNumber + offset);
     }
 
     function previousPage() {
@@ -44,7 +44,12 @@ export default function PdfViewer(props) {
     return (
         <>
             <div className="main">
-                <button className="bg-black text-white px-4 py-2 rounded" onClick={openModal}>{props.title}</button>
+                <button
+                    className="bg-black text-white px-4 py-2 rounded"
+                    onClick={openModal}
+                >
+                    {props.title}
+                </button>
                 <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
@@ -91,9 +96,6 @@ export default function PdfViewer(props) {
                         <div>
                             <button className="py-2 px-6 bg-slate-100 border border-pink-600 text-pink-600" onClick={closeModal}>Close</button>
                         </div>
-
-
-
                     </div>
                 </Modal>
             </div>
