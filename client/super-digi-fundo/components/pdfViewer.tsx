@@ -3,7 +3,7 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import Modal from 'react-modal';
 
 // const url = "/pdfs/kindergarden.pdf"
-export default function PdfViewer( props ) {
+export default function PdfViewer(props) {
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
     const [numPages, setNumPages] = useState(null);
@@ -49,37 +49,52 @@ export default function PdfViewer( props ) {
                     isOpen={modalIsOpen}
                     onRequestClose={closeModal}
                     contentLabel="Example Modal"
+                    className="flex flex-row items-center"
                 >
-                <Document
-                    file={props.item}
-                    onLoadSuccess={onDocumentLoadSuccess}>
-                    <Page pageNumber={pageNumber} />
-                </Document>
-
-                <div>
-                    <div className="">
-                        Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
+                    <div className="w-2/3">
+                        <Document
+                            file={props.item}
+                            onLoadSuccess={onDocumentLoadSuccess}
+                        >
+                            <Page pageNumber={pageNumber} />
+                        </Document>
                     </div>
 
-                    <div className="">
-                        <button
-                            type="button"
-                            disabled={pageNumber <= 1}
-                            onClick={previousPage}
-                            className=""
-                        >
-                            Previous
-                        </button>
+                    <div className='flex items-start gap-4 w-1/3'>
 
-                        <button
-                            type="button"
-                            disabled={pageNumber >= numPages}
-                            onClick={nextPage}
-                        >
-                            Next
-                        </button>
+                        <div>
+                            <div className="flex items-center p-2 mb-4 bg-gray-100 rounded">
+                                <span className='text-gray-400 mx-4'>Page</span> {pageNumber || (numPages ? 1 : '--')} <span className='mx-4 text-gray-400'> of </span> {numPages || '--'}
+                            </div>
+
+                            <div className="flex flex-row items-center justify-start">
+                                <button
+                                    type="button"
+                                    disabled={pageNumber <= 1}
+                                    onClick={previousPage}
+                                    className="py-2 px-6 bg-slate-100 border border-gray-500 mr-4"
+                                >
+                                    Previous
+                                </button>
+
+                                <button
+                                    type="button"
+                                    disabled={pageNumber >= numPages}
+                                    onClick={nextPage}
+                                    className="py-2 px-6 bg-slate-100 border border-gray-500 my-4"
+                                >
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button className="py-2 px-6 bg-slate-100 border border-pink-600 text-pink-600" onClick={closeModal}>Close</button>
+                        </div>
+
+
+
                     </div>
-                </div>
                 </Modal>
             </div>
         </>

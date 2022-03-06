@@ -5,6 +5,11 @@ import { CaretLeft } from "phosphor-react";
 import searchIcon from "../utils/search-icon.svg";
 import Layout from '../components/layout';
 import DocComp from "../components/docComp";
+import NotificationLetter from "../components/notificationLetter";
+
+
+
+
 const tabs = [
     { name: 'Allgemein', href: '#', current: false },
     { name: 'Forderart', href: '#', current: true },
@@ -129,7 +134,7 @@ const Antragsliste = () => (
                     itemName="KinderHochstadt_zimmer"
                     itemLocation="/pdfs/kindergarden.pdf" />
         </div>
-
+        <NotificationLetter />
     </>
 
 
