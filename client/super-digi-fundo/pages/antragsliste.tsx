@@ -134,7 +134,7 @@ const Antragsliste = () => (
                     itemName="KinderHochstadt_zimmer"
                     itemLocation="/pdfs/kindergarden.pdf" />
         </div>
-        <NotificationLetter />
+        {/* <NotificationLetter /> */}
     </>
 
 
