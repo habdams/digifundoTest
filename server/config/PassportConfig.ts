@@ -57,7 +57,7 @@ class Passport {
             return _next();
         }
         logger.info("User not authenticated");
-        _req.flash("error", "You must be logged in to view this page.");
+        _req.flash("error", "Kindly re-login to access this!");
         _res.redirect("/login");
     }
 
