@@ -1,47 +1,47 @@
 import type { ReactElement } from "react";
-import Image from 'next/image';
+import Image from "next/image";
 import Link from "next/link";
 import { CaretLeft } from "phosphor-react";
 import searchIcon from "../utils/search-icon.svg";
-import Layout from '../components/layout';
+import Layout from "../components/layout";
 import DocComp from "../components/docComp";
 import NotificationLetter from "../components/notificationLetter";
 
-
-
-
 const tabs = [
-    { name: 'Allgemein', href: '#', current: false },
-    { name: 'Forderart', href: '#', current: true },
-    { name: 'Info Forderung', href: '#', current: false },
-    { name: 'Kosten', href: '#', current: false },
-]
+    { name: "Allgemein", href: "#", current: false },
+    { name: "Forderart", href: "#", current: true },
+    { name: "Info Forderung", href: "#", current: false },
+    { name: "Kosten", href: "#", current: false },
+];
 
 const infos = [
-    { header: 'Grund', detail: 'Anbau an das alte Gebäude damit mehr Kinderplatz haben' },
-    { header: 'Zimmertypen', detail: 'Gemeinschaftszimmer + Küche + Toilletten' },
-    { header: 'Landkreis', detail: 'Musterlandkreis' },
-    { header: 'E-mail', detail: 'muster@email.de' },
-    { header: 'ELSTER', detail: 'ID0889039' }
-]
+    {
+        header: "Grund",
+        detail: "Anbau an das alte Gebäude damit mehr Kinderplatz haben",
+    },
+    {
+        header: "Zimmertypen",
+        detail: "Gemeinschaftszimmer + Küche + Toilletten",
+    },
+    { header: "Landkreis", detail: "Musterlandkreis" },
+    { header: "E-mail", detail: "muster@email.de" },
+    { header: "ELSTER", detail: "ID0889039" },
+];
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(" ");
 }
-
 
 const Antragsliste = () => (
     <>
         <div className="font-mono hover:text-pink-400 text-pink-600  mt-6 ml-4 px-6">
-            <Link href={'/forderungsantrage'} >
+            <Link href={"/forderungsantrage"}>
                 <a className="flex flex-row items-center">
                     <CaretLeft /> Go back
                 </a>
             </Link>
-
         </div>
         <div className="flex flex-col md:flex-row justify-center lg:justify-between items-center py-6">
-
             <div className="ml-4 px-6">
                 <h1 className="text-2xl mt-2 font-mono">Antrag</h1>
             </div>
@@ -57,7 +57,10 @@ const Antragsliste = () => (
                     />
                 </div>
                 <div className="absolute right-0 mr-10 flex flex-col justify-center items-center h-12 w-12 p-2">
-                    <Image src={searchIcon} className="px-2 text-pink-400 text-sm items-center " />
+                    <Image
+                        src={searchIcon}
+                        className="px-2 text-pink-400 text-sm items-center "
+                    />
                 </div>
             </div>
         </div>
@@ -88,11 +91,11 @@ const Antragsliste = () => (
                                 href={tab.href}
                                 className={classNames(
                                     tab.current
-                                        ? 'border-indigo-500 text-indigo-600'
-                                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
-                                    'whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm'
+                                        ? "border-indigo-500 text-indigo-600"
+                                        : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
+                                    "whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"
                                 )}
-                                aria-current={tab.current ? 'page' : undefined}
+                                aria-current={tab.current ? "page" : undefined}
                             >
                                 {tab.name}
                             </a>
@@ -104,11 +107,14 @@ const Antragsliste = () => (
 
         <div className="mt-4 ml-4 px-6">
             {infos.map((info, index) => (
-                <div key={info.header} className={classNames(
-                    index % 2 == 0
-                        ? 'flex flex-col lg:flex-row  md:items-center text-left bg-gray-200 p-2 mb-2 items-start text-gray-600'
-                        : 'flex flex-col lg:flex-row  md:items-center text-left bg-white p-2 mb-2 items-start text-gray-600'
-                )}>
+                <div
+                    key={info.header}
+                    className={classNames(
+                        index % 2 == 0
+                            ? "flex flex-col lg:flex-row  md:items-center text-left bg-gray-200 p-2 mb-2 items-start text-gray-600"
+                            : "flex flex-col lg:flex-row  md:items-center text-left bg-white p-2 mb-2 items-start text-gray-600"
+                    )}
+                >
                     <span className="w-3/12 text-sm md:text-base">
                         {info.header}
                     </span>
@@ -116,7 +122,6 @@ const Antragsliste = () => (
                     <span className="6/12 text-base md:text-sm">
                         {info.detail}
                     </span>
-
                 </div>
             ))}
         </div>
@@ -124,28 +129,36 @@ const Antragsliste = () => (
         <div className="mt-20 px-6 ml-4">
             <h3 className="text-lg font-mono font-bold">Förderbeschreibung</h3>
             <DocComp
-                    btnTitle="offnen"
-                    itemName="KinderHochstadt_zimmer"
-                    itemLocation="/pdfs/kindergarden.pdf" />
+                btnTitle="offnen"
+                itemName="KinderHochstadt_zimmer"
+                itemLocation="/pdfs/kindergarden.pdf"
+            />
 
-            <h3 className="text-lg font-mono font-bold">Zimmertypenauflistung</h3>
+            <h3 className="text-lg font-mono font-bold">
+                Zimmertypenauflistung
+            </h3>
             <DocComp
-                    btnTitle="offnen"
-                    itemName="KinderHochstadt_zimmer"
-                    itemLocation="/pdfs/kindergarden.pdf" />
+                btnTitle="offnen"
+                itemName="KinderHochstadt_zimmer"
+                itemLocation="/pdfs/kindergarden.pdf"
+            />
+        </div>
+        <div className="mt-10 h-12 flex justify-end">
+            <Link href={"/notification"}>
+                <button
+                    type="button"
+                    className="items-center w-40 text-center px-4 py-2 border mr-8 border-transparent font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    Notify
+                </button>
+            </Link>
         </div>
         {/* <NotificationLetter /> */}
     </>
-
-
 );
 
 Antragsliste.getLayout = function getLayout(antragsliste: ReactElement) {
-    return (
-        <Layout>
-            {antragsliste}
-        </Layout>
-    )
-}
+    return <Layout>{antragsliste}</Layout>;
+};
 
 export default Antragsliste;
