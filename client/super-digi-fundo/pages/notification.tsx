@@ -10,7 +10,7 @@ import NotificationLetter from "../components/notificationLetter";
 const Notification = () => (
     <>
         <div className="font-mono hover:text-pink-400 text-pink-600  mt-6 ml-4 px-6">
-            <Link href={"/forderungsantrage"}>
+            <Link href={"/antragsliste"}>
                 <a className="flex flex-row items-center">
                     <CaretLeft /> Go back
                 </a>

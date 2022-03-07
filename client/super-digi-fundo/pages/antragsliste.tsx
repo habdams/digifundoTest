@@ -143,13 +143,13 @@ const Antragsliste = () => (
                 itemLocation="/pdfs/kindergarden.pdf"
             />
         </div>
-        <div className="mt-10 h-12 flex justify-end">
+        <div className="mt-10 h-12 flex justify-end mb-10">
             <Link href={"/notification"}>
                 <button
                     type="button"
                     className="items-center w-40 text-center px-4 py-2 border mr-8 border-transparent font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                    Notify
+                    Benachrichtigen
                 </button>
             </Link>
         </div>
