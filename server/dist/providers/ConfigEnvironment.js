@@ -31,20 +31,32 @@ class ConfigEnvironment {
      */
     static config() {
         dotenv.config({
-            path: path.join(__dirname, '../../config/config.env')
+            path: path.join(__dirname, "../../config/config.env"),
         });
-        // Add environment variables for Digifundo application 
+        // Add environment variables for Digifundo application
         const port = process.env.PORT || 5040;
         const url = process.env.URL || `https://localhost:${process.env.port}`;
-        const mongooseUrl = process.env.MONGOOSE_URL;
+        const mongooseURI = process.env.MONGOOSE_URI;
         const checkForMonitoring = process.env.QUEUE_HTTP_ENABLED || true;
         const queueHttpPort = process.env.QUEUE_HTTP_PORT || 5550;
+        const jwtSecret = process.env.JWT_SECRET;
+        const activationSecret = process.env.ACTIVATION_SECRET;
+        const redisPrefix = process.env.REDIS_QUEUE_PREFIX || "digifundo";
+        const redisHttpPort = process.env.REDIS_HTTP_PORT || 6379;
+        const redisHttpHost = process.env.REDIS_HTTP_HOST || "127.0.0.1";
+        const redisDb = process.env.REDIS_DB || 3;
         return {
             port,
             url,
-            mongooseUrl,
+            mongooseURI,
             checkForMonitoring,
-            queueHttpPort
+            queueHttpPort,
+            jwtSecret,
+            activationSecret,
+            redisPrefix,
+            redisHttpPort,
+            redisHttpHost,
+            redisDb,
         };
     }
     /**

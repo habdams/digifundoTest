@@ -28,23 +28,27 @@ const dotenv = __importStar(require("dotenv"));
 const Express_1 = __importDefault(require("./providers/Express"));
 const ConfigEnvironment_1 = __importDefault(require("./providers/ConfigEnvironment"));
 const Log_1 = require("./middlewares/Log");
+const Database_1 = require("./providers/Database");
+const Queue_1 = __importDefault(require("./providers/Queue"));
 /**
  * Initialise the logger instance
  */
-const logger = Log_1.Log.logInstance('info', 'App');
+const logger = Log_1.Log.logInstance("info", "App");
 class App {
     /**
      * Load the environment variables
      */
     loadEnv() {
+        logger.info("Loading the environment variables...");
         dotenv.config({
-            path: path.join(__dirname, '../.env')
+            path: path.join(__dirname, "../.env"),
         });
     }
     /**
      * Load the express server
      */
     loadExpress() {
+        logger.info("Loading the express server...");
         Express_1.default.init();
     }
     /**
@@ -52,14 +56,31 @@ class App {
      */
     loadKue() {
         const queue = kue.createQueue({
-            prefix: 'q',
+            prefix: "q",
             redis: {
                 port: process.env.REDIS_PORT,
                 host: process.env.REDIS_HOST,
-                auth: process.env.REDIS_PASSWORD
-            }
+                auth: process.env.REDIS_PASSWORD,
+            },
         });
         queue.watchStuckJobs(1000);
+    }
+    /**
+     * Load the mongo database
+     */
+    loadMongo() {
+        logger.info("Loading the mongo database");
+        console.log("Loading the mongo database");
+        Database_1.Database.init();
+    }
+    /**
+     * Clear the queue console
+     */
+    clearQueueConsole() {
+        process.stdout.write("\x1B[2J\x1B[0f");
+        Queue_1.default.dispatch("checkout", { foo: "bar", fizz: "buzz" }, (_data) => {
+            logger.info(`>>> Here goes the data: ${_data}`);
+        });
     }
     /**
      * Load the queue monitoring
@@ -68,11 +89,10 @@ class App {
         const checkForMonitoring = ConfigEnvironment_1.default.config().queueMonitor;
         const queuePort = ConfigEnvironment_1.default.config().queuePort;
         if (checkForMonitoring) {
-            console.log('Happy');
             kue.app.listen(queuePort);
             logger.info("Queue monitoring started at port: " + queuePort);
         }
     }
 }
-exports.default = new App;
+exports.default = new App();
 //# sourceMappingURL=app.js.map

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserSchema = void 0;
+exports.User = exports.UserSchema = void 0;
 // Create a mongoose schema for User login in typescript and export it
 const mongoose_1 = __importDefault(require("mongoose"));
 ;
@@ -108,5 +108,5 @@ exports.UserSchema.methods.getJson = function () {
         gender: this.gender
     };
 };
-exports.default = mongoose_1.default.model("User", exports.UserSchema);
+exports.User = mongoose_1.default.model("User", exports.UserSchema);
 //# sourceMappingURL=User.js.map

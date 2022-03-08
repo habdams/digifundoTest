@@ -27,8 +27,12 @@ const os_1 = require("os");
 const app_1 = __importDefault(require("./app"));
 const numCPUs = (0, os_1.cpus)().length;
 const cluster = _cluster;
-// If one of the cpu is a master 
+// If one of the cpu is a master
 if (cluster.isPrimary) {
+    // Clear the console
+    app_1.default.clearQueueConsole();
+    // Load the configurations
+    app_1.default.loadEnv();
     const CPUs = (0, os_1.cpus)();
     // For each CPU process, fork a new process
     CPUs.forEach(() => {
@@ -38,6 +42,8 @@ if (cluster.isPrimary) {
     app_1.default.loadQueueMonitoring();
 }
 else {
+    // Load the database
+    app_1.default.loadMongo();
     // Load the Express server
     app_1.default.loadExpress();
 }
