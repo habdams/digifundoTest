@@ -1,4 +1,4 @@
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 import { MongoError } from "mongodb";
 import ConfigEnvironment from "./ConfigEnvironment";
 import { Log } from "../middlewares/Log";
