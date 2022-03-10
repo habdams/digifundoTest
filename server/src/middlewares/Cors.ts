@@ -15,7 +15,7 @@ class Cors {
         // Enable cors
         _express.use(
             cors({
-                origin: ConfigEnvironment.config().basURL,
+                origin: ConfigEnvironment.config().baseURL,
                 optionsSuccessStatus: 200,
             })
         );
