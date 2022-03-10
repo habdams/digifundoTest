@@ -70,3 +70,5 @@ class Http {
         return _express;
     }
 }
+
+export default Http;
