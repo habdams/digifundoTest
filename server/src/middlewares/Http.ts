@@ -16,7 +16,7 @@ const logger = Log.logInstance("info", "Http");
 const MongoStore = require("connect-mongo")(session);
 
 class Http {
-    public static init(_express: Application): Application {
+    public mount(_express: Application): Application {
         logger.info("Initializing HTTP middleware...");
 
         // Express request body parser
@@ -71,4 +71,4 @@ class Http {
     }
 }
 
-export default Http;
+export default new Http();

@@ -8,7 +8,7 @@ import { Log } from "../middlewares/Log";
 const logger = Log.logInstance("info", "CSRF");
 
 class Csrf {
-    public static init(_express: Application): Application {
+    public mount(_express: Application): Application {
         logger.info("Initializing CSRF middleware...");
 
         // Disable the x-powered-by header in response

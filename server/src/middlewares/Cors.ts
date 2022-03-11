@@ -9,7 +9,7 @@ import ConfigEnvironment from "../providers/ConfigEnvironment";
 const logger = Log.logInstance("info", "Cors");
 
 class Cors {
-    public static init(_express: Application): Application {
+    public mount(_express: Application): Application {
         logger.info("Initializing CORS middleware...");
 
         // Enable cors
