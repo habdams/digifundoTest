@@ -1,0 +1,1 @@
+{"version":3,"file":"ClientUpload.js","sourceRoot":"","sources":["../../src/models/ClientUpload.ts"],"names":[],"mappings":";;;;;;AAAA,wDAAgC;AAQnB,QAAA,kBAAkB,GAAG,IAAI,kBAAQ,CAAC,MAAM,CAAwB;IACzE,aAAa,EAAE;QACX,IAAI,EAAE,MAAM;QACZ,QAAQ,EAAE,IAAI;KACjB;IACD,SAAS,EAAE;QACP,IAAI,EAAE,MAAM;QACZ,QAAQ,EAAE,IAAI;KACjB;CACJ,CAAC,CAAC"}

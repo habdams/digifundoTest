@@ -1,0 +1,5 @@
+info: Tue Mar 08 2022 18:02:29 GMT+0100 (Central European Standard Time) | Job 1 got queued of type checkout
+info: Tue Mar 08 2022 18:02:29 GMT+0100 (Central European Standard Time) | >>> Here goes the data: [object Object]
+info: Tue Mar 08 2022 18:02:29 GMT+0100 (Central European Standard Time) | Job 1 is complete
+info: Tue Mar 08 2022 18:02:29 GMT+0100 (Central European Standard Time) | Queue with the id 1 is processed!
+info: Tue Mar 08 2022 18:02:29 GMT+0100 (Central European Standard Time) | Job 1 removed from the queue

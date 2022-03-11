@@ -1,0 +1,6 @@
+info: Fri Mar 11 2022 18:21:44 GMT+0100 (Central European Standard Time) | Loading the environment variables...
+info: Fri Mar 11 2022 18:21:44 GMT+0100 (Central European Standard Time) | Job 3 got queued of type checkout
+info: Fri Mar 11 2022 18:21:44 GMT+0100 (Central European Standard Time) | >>> Here goes the data: [object Object]
+info: Fri Mar 11 2022 18:21:44 GMT+0100 (Central European Standard Time) | Job 3 is complete
+info: Fri Mar 11 2022 18:21:44 GMT+0100 (Central European Standard Time) | Queue with the id 3 is processed!
+info: Fri Mar 11 2022 18:21:44 GMT+0100 (Central European Standard Time) | Job 3 removed from the queue

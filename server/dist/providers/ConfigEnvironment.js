@@ -45,6 +45,10 @@ class ConfigEnvironment {
         const redisHttpPort = process.env.REDIS_HTTP_PORT || 6379;
         const redisHttpHost = process.env.REDIS_HTTP_HOST || "127.0.0.1";
         const redisDb = process.env.REDIS_DB || 3;
+        const maxRequestSize = process.env.MAX_REQUEST_SIZE || "50mb";
+        const maxParameterLimit = process.env.MAX_PARAMETER_LIMIT || 1000;
+        const baseURL = process.env.BASE_URL || "https://localhost:${process.env.port}";
+        const isCorsEnabled = process.env.CORS_ENABLED || true;
         return {
             port,
             url,
@@ -57,6 +61,10 @@ class ConfigEnvironment {
             redisHttpPort,
             redisHttpHost,
             redisDb,
+            maxRequestSize,
+            maxParameterLimit,
+            baseURL,
+            isCorsEnabled,
         };
     }
     /**

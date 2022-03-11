@@ -6,14 +6,12 @@ import { Log } from "./Log";
 import session from "express-session";
 import ConfigEnvironment from "../providers/ConfigEnvironment";
 import Passport from "../config/PassportConfig";
-import passport from "passport";
+import MongoStore from "connect-mongo";
 
 /**
  * Logger instance
  */
 const logger = Log.logInstance("info", "Http");
-
-const MongoStore = require("connect-mongo")(session);
 
 class Http {
     public mount(_express: Application): Application {
@@ -43,23 +41,21 @@ class Http {
         _express.use(cors());
 
         // Enable the session store
-        _express.use(
-            session({
-                resave: true,
+        const options = {
+            resave: true,
 
-                // Save the session if it was modified
-                saveUninitialized: true,
-                // Use the mongo store
-                store: new MongoStore({
-                    url: ConfigEnvironment.config().mongooseURI,
-                    autoReconnect: true,
-                }),
-                secret: ConfigEnvironment.config().appSecret,
-                cookie: {
-                    maxAge: 1000 * 60 * 60 * 24 * 7,
-                },
-            })
-        );
+            // Save the session if it was modified
+            saveUninitialized: true,
+            // Use the mongo store
+            store: new MongoStore({
+                mongoUrl: ConfigEnvironment.config().mongooseURI,
+            }),
+            secret: ConfigEnvironment.config().appSecret,
+            cookie: {
+                maxAge: 1000 * 60 * 60 * 24 * 7,
+            },
+        };
+        _express.use(session(options));
 
         // Enable the "gzip" compression
         _express.use(compress());

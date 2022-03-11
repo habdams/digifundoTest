@@ -24,16 +24,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = __importStar(require("express"));
 const ConfigEnvironment_1 = __importDefault(require("./ConfigEnvironment"));
+const Kernel_1 = __importDefault(require("../middlewares/Kernel"));
+const Routes_1 = __importDefault(require("./Routes"));
 class Express {
     constructor() {
         this.express = express.default();
         this.mountEnvironment();
+        this.mountMiddlewares();
     }
-    // Configuation and local environment variables 
+    // Mount all the express middlewares
+    mountMiddlewares() {
+        this.express = Kernel_1.default.init(this.express);
+    }
+    // Configuation and local environment variables
     mountEnvironment() {
         this.express = ConfigEnvironment_1.default.init(this.express);
     }
-    // Run the express server 
+    // Mount routes
+    mountRoutes() {
+        this.express = Routes_1.default.mountAuthRoutes(this.express);
+    }
+    // Run the express server
     init() {
         const port = ConfigEnvironment_1.default.config().port;
         this.express.listen(port, () => {

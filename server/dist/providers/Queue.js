@@ -31,7 +31,6 @@ const Log_1 = require("../middlewares/Log");
 const logger = Log_1.Log.logInstance("info", "Queue");
 class Queue {
     constructor() {
-        console.log("***************************");
         this.jobs = kue.createQueue({
             prefix: ConfigEnvironment_1.default.config().redisPrefix,
             redis: {
@@ -40,14 +39,22 @@ class Queue {
                 db: ConfigEnvironment_1.default.config().redisDb,
             },
         });
-        console.log("XXXXXXXXXXXXXXXXXXXXXXX");
         this.jobs
+            .on("connect", () => {
+            logger.info("Successful connection to the Redis server!");
+        })
+            .on("error", (err) => {
+            logger.info("Reis server error encountered: " + err);
+        })
             .on("job enqueue", (_id, _type) => {
             logger.info(`Job ${_id} got queued of type ${_type}`);
         })
             .on("job complete", (_id) => {
             logger.info(`Job ${_id} is complete`);
             this.processJobs(_id);
+        })
+            .on("end", () => {
+            logger.info("Redis connection closed!");
         });
     }
     /**

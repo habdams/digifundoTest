@@ -1,8 +1,8 @@
 import * as passport from "passport";
-import * as passportJWT from "passport-jwt";
-import ConfigEnvironment from "../src/providers/ConfigEnvironment";
-import { User } from "../src/models/User";
-import { Log } from "../src/middlewares/Log";
+import passportJWT from "passport-jwt";
+import ConfigEnvironment from "../providers/ConfigEnvironment";
+import { User } from "../models/User";
+import { Log } from "../middlewares/Log";
 
 /**
  * Initialise the logger instance

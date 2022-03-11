@@ -1,14 +1,14 @@
 import passportLocal from "passport-local";
 import * as passport from "passport";
-import { User } from "../src/models/User";
+import { User } from "../models/User";
 const LocalStrategy = passportLocal.Strategy;
 import * as bcrypt from "bcrypt";
-import { Log } from "../src/middlewares/Log";
+import { Log } from "../middlewares/Log";
 
 /**
  * Initialise the logger instance
  */
-const logger = Log.logInstance("info", "Activation");
+const logger = Log.logInstance("info", "Passport");
 
 // Create a class localStrategy to implement the local passport strategy in typescript
 class PassportLocalStrategy {

@@ -1,15 +1,15 @@
-import * as passport from "passport";
+import passport from "passport";
 import { Application } from "express";
 import PassportLocalStrategy from "./PassportLocalStrategy";
-import { User, UserInterface } from "../src/models/User";
-import { Log } from "../src/middlewares/Log";
+import PassportJwtStrategy from "./PassportJwtStrategy";
+import { User, UserInterface } from "../models/User";
+import { Log } from "../middlewares/Log";
 import { NativeError } from "mongoose";
-import { equal } from "assert";
 
 /**
  * Initialise the logger instance
  */
-const logger = Log.logInstance("info", "Activation");
+const logger = Log.logInstance("info", "Passport");
 
 class Passport {
     /**
@@ -33,19 +33,19 @@ class Passport {
             );
         });
 
-        this.mountLocalStrategy();
+        this.mountPassport();
         return _express;
     }
 
     /**
      * Mount the local passport strategy
      */
-    public mountLocalStrategy(): void {
+    public mountPassport(): void {
         try {
             PassportLocalStrategy.init(passport);
+            PassportJwtStrategy.init(passport);
         } catch (err) {
             logger.error(err);
-            console.log(err);
         }
     }
 

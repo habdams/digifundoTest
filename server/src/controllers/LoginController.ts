@@ -4,6 +4,7 @@ import { body, check, validationResult } from "express-validator";
 import { User } from "../models/User";
 import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";
+import ConfigEnvironment from "../providers/ConfigEnvironment";
 
 // Login Controller class
 class LoginController {
@@ -67,7 +68,7 @@ class LoginController {
                             };
                             const token = jwt.sign(
                                 payload,
-                                process.env.JWT_SECRET,
+                                ConfigEnvironment.config().jwtSecret,
                                 {
                                     expiresIn: "2d",
                                 },
