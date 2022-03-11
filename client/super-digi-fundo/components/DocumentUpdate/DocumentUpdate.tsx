@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckSquare } from 'phosphor-react';
 
 const requestedDoc = ["Geburtsurkunde", "Steuerfreiheit", "Work"];
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-}
+
 
 export const DocumentUpdate = () => {
+
+    const [file, setFile] = useState(null);
+
+    function handleFile(e) {
+        // console.log(e.target.files, 'handled files');
+        let file = e.target.files
+        setFile(file)
+
+    }
+
+    function uploadFile(e) {
+        let fileUpload = file
+        console.log(fileUpload, "from button");
+
+    }
+
     return (
         <>
             <div className="space-y-6">
@@ -21,14 +35,14 @@ export const DocumentUpdate = () => {
 
                             <div className='mt-6 border-t border-t-pink-200 p-2'>
                                 <h1 className="mb-2 ">die Kontrollliste</h1>
-                                {requestedDoc.map((doc) => (
-                                    <span className='flex items-center gap-2 text-gray-600'><CheckSquare size={24} color="#ff89a9" />{doc}</span>
+                                {requestedDoc.map((doc, index) => (
+                                    <span key={index} className='flex items-center gap-2 text-gray-600'><CheckSquare size={24} color="#ff89a9" />{doc}</span>
 
                                 ))}
                             </div>
                         </div>
                         <div className="mt-5 md:mt-0 md:col-span-3 ">
-                            <form className="space-y-6" action="#" method="POST">
+                            <div className="space-y-6">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">Unterlagen</label>
                                     <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
@@ -53,7 +67,7 @@ export const DocumentUpdate = () => {
                                                     className="relative cursor-pointer bg-white rounded-md font-medium text-pink-600 hover:text-pink-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-pink-500"
                                                 >
                                                     <span>Daten hochladen</span>
-                                                    <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple />
+                                                    <input id="file-upload" onChange={(e) => handleFile(e)} name="file-upload" type="file" className="sr-only" multiple />
                                                 </label>
                                                 <p className="pl-1">oder ziehen und ablegen</p>
                                             </div>
@@ -69,13 +83,14 @@ export const DocumentUpdate = () => {
                                         Beenden
                                     </button>
                                     <button
+                                        onClick={(e) => uploadFile(e)}
                                         type="submit"
                                         className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                                     >
                                         Hochladen
                                     </button>
                                 </div>
-                            </form>
+                            </div>
 
                         </div>
                     </div>
