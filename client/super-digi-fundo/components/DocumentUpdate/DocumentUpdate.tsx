@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CheckSquare } from 'phosphor-react';
+import axios from 'axios';
 
 const requestedDoc = ["Geburtsurkunde", "Steuerfreiheit", "Work"];
 
@@ -17,8 +18,23 @@ export const DocumentUpdate = () => {
     }
 
     function uploadFile(e) {
-        let fileUpload = file
-        console.log(fileUpload, "from button");
+        let fileUpload = file;
+        let formdata = new FormData();
+        formdata.append('documents', fileUpload);
+
+        axios({
+            url: "/api/get",
+            method: "POST",
+            headers:{
+                authorization: 'my-token'
+            },
+            data: formdata
+        }).then((res)=>{
+
+        },(err)=>{
+            console.log('error, no API yet');
+            
+        })
 
     }
 
