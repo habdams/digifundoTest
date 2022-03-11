@@ -1,1 +1,2 @@
-export * from './ApplicantAccess'
+export * from './ApplicantAccess';
+

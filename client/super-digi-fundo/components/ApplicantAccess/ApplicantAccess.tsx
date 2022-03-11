@@ -21,7 +21,7 @@ export function ApplicantAccess() {
                     <label htmlFor="zugangscode" className=' mb-1 text-gray-800'>Zugangscode</label>
                     <span className='flex'>
                     <input type="text" name="Zugangscode" id="zugangscode" className=' border border-gray-200 text-pink-600 focus:ring-pink-400 focus:border-pink-400' />
-                    <a className="py-2 px-10 bg-pink-600 text-white ">Einreichen</a>
+                    <a className="py-2 px-10 bg-pink-600 text-white cursor-pointer">Einreichen</a>
                     </span>
                 </div>
             </div>
