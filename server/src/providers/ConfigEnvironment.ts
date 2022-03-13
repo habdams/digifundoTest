@@ -31,6 +31,7 @@ class ConfigEnvironment {
         const baseURL =
             process.env.BASE_URL || "https://localhost:${process.env.port}";
         const isCorsEnabled = process.env.CORS_ENABLED || true;
+        const appSecret = process.env.APP_SECRET;
 
         return {
             port,
@@ -48,6 +49,7 @@ class ConfigEnvironment {
             maxParameterLimit,
             baseURL,
             isCorsEnabled,
+            appSecret,
         };
     }
 

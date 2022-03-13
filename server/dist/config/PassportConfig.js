@@ -42,7 +42,6 @@ class Passport {
         }
         catch (err) {
             logger.error(err);
-            console.log("EEEEEE", err);
         }
     }
     /**
