@@ -9,19 +9,38 @@ import { Navigate } from "react-router-dom";
 
 const requestedDoc = ["Geburtsurkunde", "Steuerfreiheit", "Work"];
 
+
 export const DocumentUpdate = (props) => {
-    const [file, setFile] = useState(null);
+    // const [file, setFile] = useState(null);
     const [files, setFiles] = useState([]);
     console.log(files);
 
+    let uploadedFilesDisplay = []
+    let requestedFiles = [];
+    requestedFiles.push(files)
+    for (let i = 0; i < requestedFiles.length; i++) {
+        for(let item in requestedFiles[i]){
+            uploadedFilesDisplay.push(requestedFiles[i][item].name)
+            // console.log(requestedFilesDisplay,"requested file")
+        }
+    }
+    
+    // console.log(uploadedFilesDisplay, "display");
+    
+    
+
+
+
     function handleFile(e) {
-        console.log(files);
+        // console.log(files);
         // console.log(e.target.files, 'handled files');
         let newArr = e.target.files;
         for (let i = 0; i < newArr.length; i++) {
             setFiles((oldFiles) => [...oldFiles, newArr[i]]);
         }
+
     }
+
 
     function timeout(delay: number) {
         return new Promise((res) => setTimeout(res, delay));
@@ -72,7 +91,7 @@ export const DocumentUpdate = (props) => {
         }
     };
 
-    function uploadFile(e) {
+    function uploadFiles(e) {
         // let fileUpload = file;
         // let formdata = new FormData();
         // formdata.append("documents", fileUpload);
@@ -125,6 +144,13 @@ export const DocumentUpdate = (props) => {
                         </div>
                         <div className="mt-5 md:mt-0 md:col-span-3 ">
                             <div className="space-y-6">
+                                <div className= "flex flex-col rounded text-sm p-2 bg-gray-50">
+                                    {uploadedFilesDisplay.map((item,index)=>(
+                                        <span className="text-gray-400 my-1" key={index}>
+                                            {item} <span className="text-green-400 italic text-xs">added</span>
+                                        </span>           
+                                    ))}
+                                </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">
                                         Unterlagen
