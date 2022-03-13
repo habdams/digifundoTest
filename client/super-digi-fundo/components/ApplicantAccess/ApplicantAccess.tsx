@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function ApplicantAccess() {
     return (
@@ -31,9 +32,11 @@ export function ApplicantAccess() {
                             id="zugangscode"
                             className=" border border-gray-200 text-pink-600 focus:ring-pink-400 focus:border-pink-400"
                         />
-                        <a className="py-2 px-10 bg-pink-600 text-white cursor-pointer">
-                            Einreichen
-                        </a>
+                        <Link href={"/update/update-form"}>
+                            <a className="py-2 px-10 bg-pink-600 text-white cursor-pointer">
+                                Einreichen
+                            </a>
+                        </Link>
                     </span>
                 </div>
             </div>
