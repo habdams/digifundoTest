@@ -22,9 +22,12 @@ const projects = [
     {
         id: 1,
         Aktenzeichen: "ID 674 947 659",
-        Vorhaben: "Neues Gebaude",
-        Gemeinde: "Neufahrn b. Freising",
-        Eingangsdatum: "March 17, 2020",
+        Titel: "Neues Gebaude",
+        Gemeinde: "Hochstadt",
+        Landkreis: "Freising",
+        Eingangsdatum: "21.02.2021",
+        Sachbearbeiter: "Herr Hoffmann",
+
         //   members: [
         //     {
         //       name: 'Dries Vincent',
@@ -33,74 +36,65 @@ const projects = [
         //         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
         //     },
         //   ],
-        status: "Ungeöffnet",
+        status: "In Bearbeitung",
     },
-    {
-        id: 2,
-        Aktenzeichen: "ID 674 947 659",
-        Vorhaben: "Renovierung",
-        Gemeinde: "Püschersdorf",
-        Eingangsdatum: "Sept 26, 2021",
-        //   members: [
-        //     {
-        //       name: 'Dries Vincent',
-        //       handle: 'driesvincent',
-        //       imageUrl:
-        //         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        //     },
-        //   ],
-        status: "Ungeöffnet",
-    },
-    {
-        id: 3,
-        Aktenzeichen: "ID 674 947 659",
-        Vorhaben: "Restaurierung",
-        Gemeinde: "Ruhefort",
-        Eingangsdatum: "Oct 10, 2020",
-        //   members: [
-        //     {
-        //       name: 'Dries Vincent',
-        //       handle: 'driesvincent',
-        //       imageUrl:
-        //         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        //     },
-        //   ],
-        status: "Ungeöffnet",
-    },
+   
     // More projects...
 ];
 
 const Forderungsantrage = () => (
     <>
-        <div className="pt-6 pb-2">
-            <h1 className="px-6 text-2xl ml-4 mt-2 font-mono">
-                Förderungsanträge
-            </h1>
-        </div>
 
-        <div className="mt-1 relative flex px-6 pb-2 h-14 justify-items-center items-center flex-1 flex-row">
-            <div className="bg-red-200 w-full h-10 m-4 content-center rounded-full">
-                <input
-                    type="text"
-                    name="search"
-                    placeholder="Suche nach Aktenzeichen, Gemeinde, ..."
-                    id="search"
-                    className="h-full shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full rounded-full pr-12 sm:text-sm border-gray-300"
-                />
+        <div className=" flex flex-col md:flex-row items-start justify-start mt-8">
+            <div className="pb-2 w-2/5">
+                <h1 className= "text-2xl ml-4 font-mono">
+                    Förderungsanträge
+                </h1>
+
+                <div className="mt-1 relative flex pb-2 h-14 justify-items-center items-center flex-1 flex-row ">
+
+                    <div className="bg-red-200 w-full h-10 m-4 content-center rounded-full">
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="Suche nach Aktenzeichen, Gemeinde, ..."
+                            id="search"
+                            className="h-full shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full rounded-full pr-12 sm:text-sm border-gray-300"
+                        />
+                    </div>
+
+                    <div className="absolute right-0 mr-10 flex flex-col justify-center items-center h-12 w-12 p-2">
+                        <Image
+                            src={searchIcon}
+                            className="px-2 text-pink-400 text-sm items-center "
+                        />
+                    </div>
+                </div>
             </div>
-            <div className="absolute right-0 mr-10 flex flex-col justify-center items-center h-12 w-12 p-2">
-                <Image
-                    src={searchIcon}
-                    className="px-2 text-pink-400 text-sm items-center "
-                />
+
+            <div className="w-3/5 flex flex-col justify-end px-12 items-end">
+                <div>
+                    <h3 className="text-lg text-gray-800">Kindergarten Förderung</h3>
+                    <p>Restbudget: <span className="font-bold">98 Mio €</span></p>
+                </div>
+                <div className="mt-4">
+                    <ul className="flex flex-col md:flex-row text-sm">
+                        <li className="mr-4 text-green-600">129 In Bearbeitung</li>
+                        <li className="mr-4 text-pink-600">23 Abgelehnt</li>
+                        <li className="mr-4 text-purple-600">92 Bescheid erstellt</li>
+                        <li className="mr-4 text-gray-700">943 Vorgang zum Akt</li>
+                    </ul>
+                </div>
+
             </div>
+
         </div>
         <div className="bg-white lg:min-w-0 lg:flex-1">
-            <div className="pl-4 pr-6 pt-4 pb-4 border-b border-t border-gray-200 sm:pl-6 lg:pl-8 xl:pl-6 xl:pt-6 xl:border-t-0">
+            <div className="pl-4 pr-6 pt-4 pb-4   sm:pl-6 lg:pl-8 xl:pl-6 xl:pt-6 xl:border-t-0">
                 <div className="flex items-center">
                     <h1 className="flex-1 text-lg font-medium"></h1>
                     <Menu as="div" className="relative">
-                        <Menu.Button className="w-full bg-white border border-gray-300 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                        {/* <Menu.Button className="w-full bg-white border border-gray-300 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                             <SortAscendingIcon
                                 className="mr-3 h-5 w-5 text-gray-400"
                                 aria-hidden="true"
@@ -110,7 +104,7 @@ const Forderungsantrage = () => (
                                 className="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400"
                                 aria-hidden="true"
                             />
-                        </Menu.Button>
+                        </Menu.Button> */}
                         <Menu.Items className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div className="py-1">
                                 <Menu.Item>
@@ -206,13 +200,21 @@ const Forderungsantrage = () => (
                                 Aktenzeichen
                             </th>
                             <th className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Vorhaben
+                                Titel
                             </th>
                             <th className="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Gemeinde
                             </th>
                             <th className="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Lankreis
+                            </th>
+
+                            <th className="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Eingangsdatum
+                            </th>
+
+                            <th className="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Sachbearbeiter
                             </th>
                             <th className="hidden md:table-cell px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Status
@@ -227,32 +229,36 @@ const Forderungsantrage = () => (
                                     <div className="flex items-center space-x-3 lg:pl-2">
                                         <a
                                             href="#"
-                                            className="truncate hover:text-gray-600"
+                                            className=" hover:text-gray-600"
                                         >
                                             <span>{project.Aktenzeichen}</span>
                                         </a>
                                     </div>
                                 </td>
                                 <td className="hidden md:table-cell w-1/5 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
-                                    {project.Vorhaben}
+                                    {project.Titel}
                                 </td>
                                 <td className="hidden md:table-cell w-1/5 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
                                     {project.Gemeinde}
                                 </td>
                                 <td className="hidden md:table-cell w-1/5 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
+                                    {project.Landkreis}
+                                </td>
+                                <td className="hidden md:table-cell w-1/5 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
                                     {project.Eingangsdatum}
+                                </td>
+                                <td className="hidden md:table-cell w-1/5 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
+                                    {project.Sachbearbeiter}
                                 </td>
                                 <td className="hidden md:table-cell w-1/12 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
                                     <span
-                                        className={`bg-${
-                                            project.status == "Ungeöffnet"
-                                                ? "red-200"
-                                                : "blue-200"
-                                        } text-${
-                                            project.status == "Ungeöffnet"
-                                                ? "red-500"
+                                        className={`bg-${project.status == "In Bearbeitung"
+                                            ? "green-100"
+                                            : "blue-200"
+                                            } text-${project.status == "In Bearbeitung"
+                                                ? "green-600"
                                                 : "blue-500"
-                                        } p-2 rounded-2xl px-4`}
+                                            } p-2 rounded-2xl px-4`}
                                     >
                                         {project.status}
                                     </span>
