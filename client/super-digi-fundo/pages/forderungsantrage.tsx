@@ -38,7 +38,84 @@ const projects = [
         //   ],
         status: "In Bearbeitung",
     },
-   
+    {
+        id: 1,
+        Aktenzeichen: "ID 674 947 659",
+        Titel: "Neues Gebaude",
+        Gemeinde: "Hochstadt",
+        Landkreis: "Freising",
+        Eingangsdatum: "21.02.2021",
+        Sachbearbeiter: "Herr Hoffmann",
+
+        //   members: [
+        //     {
+        //       name: 'Dries Vincent',
+        //       handle: 'driesvincent',
+        //       imageUrl:
+        //         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        //     },
+        //   ],
+        status: "In Bearbeitung",
+    },
+    {
+        id: 1,
+        Aktenzeichen: "ID 674 947 659",
+        Titel: "Neues Gebaude",
+        Gemeinde: "Hochstadt",
+        Landkreis: "Freising",
+        Eingangsdatum: "21.02.2021",
+        Sachbearbeiter: "Herr Hoffmann",
+
+        //   members: [
+        //     {
+        //       name: 'Dries Vincent',
+        //       handle: 'driesvincent',
+        //       imageUrl:
+        //         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        //     },
+        //   ],
+        status: "Abgelehnt",
+    },
+    {
+        id: 1,
+        Aktenzeichen: "ID 674 947 659",
+        Titel: "Neues Gebaude",
+        Gemeinde: "Hochstadt",
+        Landkreis: "Freising",
+        Eingangsdatum: "21.02.2021",
+        Sachbearbeiter: "Herr Hoffmann",
+
+        //   members: [
+        //     {
+        //       name: 'Dries Vincent',
+        //       handle: 'driesvincent',
+        //       imageUrl:
+        //         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        //     },
+        //   ],
+        status: "Vorgang zum Akt",
+    },
+    {
+        id: 1,
+        Aktenzeichen: "ID 674 947 659",
+        Titel: "Neues Gebaude",
+        Gemeinde: "Hochstadt",
+        Landkreis: "Freising",
+        Eingangsdatum: "21.02.2021",
+        Sachbearbeiter: "Herr Hoffmann",
+
+        //   members: [
+        //     {
+        //       name: 'Dries Vincent',
+        //       handle: 'driesvincent',
+        //       imageUrl:
+        //         'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        //     },
+        //   ],
+        status: "Bescheid erstellt",
+    },
+
+
     // More projects...
 ];
 
@@ -47,7 +124,7 @@ const Forderungsantrage = () => (
 
         <div className=" flex flex-col md:flex-row items-start justify-start mt-8">
             <div className="pb-2 w-2/5">
-                <h1 className= "text-2xl ml-4 font-mono">
+                <h1 className="text-2xl ml-4 font-mono">
                     Förderungsanträge
                 </h1>
 
@@ -63,7 +140,7 @@ const Forderungsantrage = () => (
                         />
                     </div>
 
-                    <div className="absolute right-0 mr-10 flex flex-col justify-center items-center h-12 w-12 p-2">
+                    <div className="absolute right-0 mr-3 flex flex-col justify-center items-center h-12 w-12 p-2">
                         <Image
                             src={searchIcon}
                             className="px-2 text-pink-400 text-sm items-center "
@@ -89,6 +166,7 @@ const Forderungsantrage = () => (
             </div>
 
         </div>
+
         <div className="bg-white lg:min-w-0 lg:flex-1">
             <div className="pl-4 pr-6 pt-4 pb-4   sm:pl-6 lg:pl-8 xl:pl-6 xl:pt-6 xl:border-t-0">
                 <div className="flex items-center">
@@ -110,7 +188,7 @@ const Forderungsantrage = () => (
                                 <Menu.Item>
                                     {({ active }) => (
                                         <a
-                                            href="#"
+                                            href=""
                                             className={classNames(
                                                 active
                                                     ? "bg-gray-100 text-gray-900"
@@ -172,7 +250,7 @@ const Forderungsantrage = () => (
                 {projects.map((project) => (
                     <li key={project.id} className="">
                         <a
-                            href="#"
+                            href="/antragsliste"
                             className="group flex items-center justify-between px-4 py-4 hover:bg-gray-50 sm:px-6"
                         >
                             <span className="flex items-center truncate space-x-3">
@@ -228,7 +306,7 @@ const Forderungsantrage = () => (
                                 <td className="px-6 py-3 max-w-0 w-1/5 whitespace-nowrap text-sm font-medium text-gray-900 text-left">
                                     <div className="flex items-center space-x-3 lg:pl-2">
                                         <a
-                                            href="#"
+                                            href="/antragsliste"
                                             className=" hover:text-gray-600"
                                         >
                                             <span>{project.Aktenzeichen}</span>
@@ -252,12 +330,14 @@ const Forderungsantrage = () => (
                                 </td>
                                 <td className="hidden md:table-cell w-1/12 px-6 py-3 whitespace-nowrap text-sm text-gray-500 text-left">
                                     <span
-                                        className={`bg-${project.status == "In Bearbeitung"
-                                            ? "green-100"
-                                            : "blue-200"
-                                            } text-${project.status == "In Bearbeitung"
-                                                ? "green-600"
-                                                : "blue-500"
+                                        className={`bg-${project.status == "In Bearbeitung" ? "green-100"
+                                            : project.status == "Abgelehnt" ? "pink-100"
+                                                : project.status == "Bescheid erstellt" ? "purple-100"
+                                                    : "gray-100"
+                                            } text-${project.status == "In Bearbeitung" ? "green-600"
+                                                : project.status == "Abgelehnt" ? "pink-600"
+                                                    : project.status == "Bescheid erstellt" ? "purple-600"
+                                                        : "gray-600"
                                             } p-2 rounded-2xl px-4`}
                                     >
                                         {project.status}
