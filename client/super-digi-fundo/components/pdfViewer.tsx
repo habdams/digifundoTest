@@ -45,7 +45,7 @@ export default function PdfViewer(props) {
         <>
             <div className="main">
                 <button
-                    className="bg-black text-white px-4 py-2 rounded"
+                    className="bg-pink-500 text-white px-8 py-2"
                     onClick={openModal}
                 >
                     {props.title}

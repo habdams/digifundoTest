@@ -7,8 +7,8 @@ import { FolderUser, Files, Calculator, UserPlus, CalendarCheck } from "phosphor
 
 
 const tabs = [
-    { name: "Antrag", href: "#", icon: FolderUser, current: true },
-    { name: "Fachliche Dokumente", href: "#", icon: Files, current: false },
+    { name: "Antrag", href: "/antragsliste", icon: FolderUser, current: true },
+    { name: "Fachliche Dokumente", href: "/fachlische-dokumente", icon: Files, current: false },
     { name: "Kalkulation", href: "#", icon: Calculator, current: false },
     { name: "Bescheide & Vermerke", href: "#", icon: UserPlus, current: false },
     { name: "Verwendungsnachweis", href: "#", icon: CalendarCheck, current: false },
